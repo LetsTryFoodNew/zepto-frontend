@@ -1,7 +1,7 @@
 import axios from 'axios';
 
 const api = axios.create({
-  baseURL: 'http://192.168.1.24:8000', // Change to your actual API base
+  baseURL: 'http://zepto-edi-integration-env-1.eba-wmmtjd4e.eu-north-1.elasticbeanstalk.com', // Change to your actual API base
   headers: {
     'Content-Type': 'application/json',
   },
