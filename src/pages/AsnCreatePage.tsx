@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import { useNavigate, useLocation } from 'react-router-dom';
 import { createAsn } from '../services/asnService';
 import { PurchaseOrderDetails } from '../types';
@@ -234,75 +234,75 @@ const AsnCreatePage: React.FC = () => {
               />
             </label>
 
-<label style={{ display: 'flex', flexDirection: 'column', fontWeight: 600 }}>
-  Taxable Amount
-  <input
-    type="number"
-    name="taxableAmount"
-    inputMode="decimal"
-    pattern="[0-9]*"
-    autoComplete="off"
-    value={invoiceDetails.taxableAmount === 0 ? "" : invoiceDetails.taxableAmount}
-    onChange={e => {
-      const value = e.target.value;
-      // allow only numbers and empty string
-      if (/^\d*\.?\d*$/.test(value)) {
-        setInvoiceDetails(prev => ({
-          ...prev,
-          taxableAmount: value === "" ? 0 : Number(value)
-        }));
-      }
-    }}
-    required
-    style={{
-      padding: '11px 14px',
-      fontSize: 16,
-      borderRadius: 8,
-      border: '1px solid #cfd8dc',
-      outlineColor: '#2962ff',
-      marginTop: 4,
-      // Hide number spin buttons
-      MozAppearance: "textfield",
-    }}
-  />
-</label>
+            <label style={{ display: 'flex', flexDirection: 'column', fontWeight: 600 }}>
+              Taxable Amount
+              <input
+                type="number"
+                name="taxableAmount"
+                inputMode="decimal"
+                pattern="[0-9]*"
+                autoComplete="off"
+                value={invoiceDetails.taxableAmount === 0 ? "" : invoiceDetails.taxableAmount}
+                onChange={e => {
+                  const value = e.target.value;
+                  // allow only numbers and empty string
+                  if (/^\d*\.?\d*$/.test(value)) {
+                    setInvoiceDetails(prev => ({
+                      ...prev,
+                      taxableAmount: value === "" ? 0 : Number(value)
+                    }));
+                  }
+                }}
+                required
+                style={{
+                  padding: '11px 14px',
+                  fontSize: 16,
+                  borderRadius: 8,
+                  border: '1px solid #cfd8dc',
+                  outlineColor: '#2962ff',
+                  marginTop: 4,
+                  // Hide number spin buttons
+                  MozAppearance: "textfield",
+                }}
+              />
+            </label>
 
-<label style={{ display: 'flex', flexDirection: 'column', fontWeight: 600 }}>
-  Grand Total Amount
-  <input
-    type="number"
-    name="grandTotalAmount"
-    inputMode="decimal"
-    pattern="[0-9]*"
-    autoComplete="off"
-    value={invoiceDetails.grandTotalAmount === 0 ? "" : invoiceDetails.grandTotalAmount}
-    onChange={e => {
-      const value = e.target.value;
-      // allow only numbers and empty string
-      if (/^\d*\.?\d*$/.test(value)) {
-        setInvoiceDetails(prev => ({
-          ...prev,
-          grandTotalAmount: value === "" ? 0 : Number(value)
-        }));
-      }
-    }}
-    required
-    style={{
-      padding: '11px 14px',
-      fontSize: 16,
-      borderRadius: 8,
-      border: '1px solid #cfd8dc',
-      outlineColor: '#2962ff',
-      marginTop: 4,
-      MozAppearance: "textfield",
-    }}
-  />
-  {grandTotalError && (
-    <span style={{ color: 'red', fontWeight: 700, marginTop: 5 }}>
-      {grandTotalError}
-    </span>
-  )}
-</label>
+            <label style={{ display: 'flex', flexDirection: 'column', fontWeight: 600 }}>
+              Grand Total Amount
+              <input
+                type="number"
+                name="grandTotalAmount"
+                inputMode="decimal"
+                pattern="[0-9]*"
+                autoComplete="off"
+                value={invoiceDetails.grandTotalAmount === 0 ? "" : invoiceDetails.grandTotalAmount}
+                onChange={e => {
+                  const value = e.target.value;
+                  // allow only numbers and empty string
+                  if (/^\d*\.?\d*$/.test(value)) {
+                    setInvoiceDetails(prev => ({
+                      ...prev,
+                      grandTotalAmount: value === "" ? 0 : Number(value)
+                    }));
+                  }
+                }}
+                required
+                style={{
+                  padding: '11px 14px',
+                  fontSize: 16,
+                  borderRadius: 8,
+                  border: '1px solid #cfd8dc',
+                  outlineColor: '#2962ff',
+                  marginTop: 4,
+                  MozAppearance: "textfield",
+                }}
+              />
+              {grandTotalError && (
+                <span style={{ color: 'red', fontWeight: 700, marginTop: 5 }}>
+                  {grandTotalError}
+                </span>
+              )}
+            </label>
 
           </div>
         </fieldset>

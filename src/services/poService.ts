@@ -1,6 +1,6 @@
 // src/services/poService.ts
 import api from './api';
-import { POListResponse, PurchaseOrder, PurchaseOrderDetails } from '../types';
+import { POListResponse, PurchaseOrderDetails } from '../types';
 
 export interface GetPoEventsParams {
   days?: number;
@@ -31,7 +31,7 @@ export async function getPoDetails(poCode: string): Promise<PurchaseOrderDetails
   return poDetailsList && poDetailsList.length > 0 ? poDetailsList[0] : null;
 }
 
-export async function amendPo(poCode: string, amendmentBody: any){
+export async function amendPo(poCode: string, amendmentBody: any) {
   const response = await api.post(`/po/${poCode}/amendment`, amendmentBody);
   return response.data;
 }

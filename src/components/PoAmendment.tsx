@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { PurchaseOrderDetails, POLineItem } from "../types";
+import { PurchaseOrderDetails } from "../types";
 import { amendPo } from "../services/poService";
 
 interface AmendmentDetail {
@@ -105,7 +105,6 @@ const PoAmendment: React.FC<PoAmendmentProps> = ({ po, closePanel }) => {
           productIdentifier: {
             skuCode: product.skuCode,
             materialCode: product.materialCode,
-            skuName: product.productName,
             identifier: {
               identifierType: "EAN",
               identifierValue: product.ean || "",
